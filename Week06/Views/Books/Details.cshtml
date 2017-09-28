@@ -1,0 +1,52 @@
+﻿@model Week06.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@if (ViewBag.Message != null)
+{
+    <p class="alert alert-danger">
+        @ViewBag.Message
+    </p>
+}
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookPublishedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookPublishedDate)
+        </dd>
+
+    </dl>
+</div>
+@* You can improve this section if you want. *@
+<div class="row auto-clear">
+    @foreach (var item in Model.Images)
+    {
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+            <img class="img-thumbnail" src='@Url.Content("~/Uploads/" + item.ImagePath)' />
+        </div>
+    }
+</div>
+<br />
+<div class="row">
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

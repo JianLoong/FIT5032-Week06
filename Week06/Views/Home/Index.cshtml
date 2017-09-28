@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Week 06 - Upload Image Example</h1>
+    <p>There are many ways the upload of image to the server can be done. One of the ways is to store the path 
+    of the image in the database. So, instead of storing it as a BLOB, the path to the image is stored instead. What do
+    you think are the advantage and disadvantages of both ways?</p>
+    <p>In this sample project you can add images to a Book, these images can then be viewed in the "Detail" of 
+    the book.</p>
+    <p>The challenges this week is to do things in a better way to encourage self learning. The solutions of these challenges will 
+    not be provided. The challenges are for students who want to learn beyond the normal reach.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Challenge 1</h2>
+        <p>
+            Currently there is no validation of image size. Perform these validations. You can validate the image size
+            as well as the min width and height.
+        </p>
+        <p>Difficulty - <span class="text-info">Easy</span></p>        
+    </div>
+    <div class="col-md-4">
+        <h2>Challenge 2</h2>
+        <p>The current database structure stores the file extension manually but what if the user enters the wrong extension?
+        Will the image still load correctly? You can improve this by actually determining the correct file type.</p>
+        <p>Where do you think you can do these validations? It should be at both client side and server side.</p>
+        <p>Difficulity - <span class="text-warning">Medium</span></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Challenge 3</h2>
+        <p>Currently the file upload is not really user friendly. Think of a way to do a progressbar where the user can see the
+        progress of the file upload.</p>
+        <p>Do you think you can test this properly?</p>
+        <p>Difficulty - <span class="text-danger">Hard</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Challenge 4</h2>
+        <p>Loading images is normally considered to a be huge load to the server. At the moment, I am loading all images
+        at once in the datatables, how do you think you can optimise this?</p>
+        <p>One way is to only load the images only when needed in the datatables, so you can achieve a pagination like feature.<p>
+        <p>However another way is to enable compression on your IIS Server</p>
+        <p>The other way would be to generate thumbnails of the images at smaller sizes.</p>
+        <p>Difficulty - <span class="text-danger">Expert</span></p>
+    </div>
+</div>
