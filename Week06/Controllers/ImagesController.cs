@@ -52,6 +52,19 @@ namespace Week06.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ImageId,BookId")] Image image, HttpPostedFileBase postedFile)
         {
+
+            
+            ViewBag.BookId = new SelectList(db.Books, "BookId", "BookTitle");
+
+            int fileSize = postedFile.ContentLength;
+
+            if (fileSize > (10 * 1024 * 1024))
+            {
+                ViewBag.Message = "Please upload an image with a valid size.";
+                return View(image);
+
+            }
+
             if (postedFile != null)
             {
                 string path = Server.MapPath("~/Uploads/");
@@ -62,7 +75,7 @@ namespace Week06.Controllers
 
                 if (Helpers.Util.IsRecognisedImageFile(postedFile.FileName))
                 {
-                    // Here I want each image to have a unique path. Doesn't matter if the same image is uploaded. E
+                    // Here I want each image to have a unique path. Doesn't matter if the same image is uploaded. 
                     // Each path is the same length.
                     String filePath = Helpers.Util.GenerateUniqueString();
                     filePath = Helpers.Util.CalculateMD5Hash(filePath);
@@ -84,7 +97,11 @@ namespace Week06.Controllers
             {
                 db.Images.Add(image);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                ViewBag.Message = "Upload is successful";
+
+                //return RedirectToAction("Index");
+                return View(image);
             }
 
             ViewBag.BookId = new SelectList(db.Books, "BookId", "BookTitle", image.BookId);

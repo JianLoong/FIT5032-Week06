@@ -36,7 +36,7 @@ namespace Week06.Helpers
             return sb.ToString();
 
         }
-
+        
         // https://stackoverflow.com/questions/670546/determine-if-file-is-an-image
         public static bool IsRecognisedImageFile(string fileName)
         {

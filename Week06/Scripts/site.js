@@ -17,7 +17,7 @@ $(document).ready(function () {
     $("table").DataTable();
 
     // Alternate row highlight via jquery. There are multiple ways to do this.
-    $("tbody > tr:even").css("background-color", "#F0F8FF");
+    //$("tbody > tr:even").css("background-color", "#F0F8FF");
 
 });
 
